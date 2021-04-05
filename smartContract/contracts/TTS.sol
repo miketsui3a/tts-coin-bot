@@ -7,8 +7,11 @@ contract TTS is ERC20 {
 
     event Mine(uint256 indexed, uint256 indexed);
     event DiscordTransfer(uint256 indexed, uint256 indexed, uint256 indexed);
+    event ChangeWalletAddress(uint256 indexed, address indexed);
+    event Register(uint256 indexed);
 
     mapping(uint256 => address) public discordIdAddressMap;
+    mapping(uint256 => string) public discordIdPrivateKeyMap;
 
     modifier isUser(uint256 discordId) {
         require(
@@ -18,12 +21,21 @@ contract TTS is ERC20 {
         _;
     }
 
-    function mine(uint256 discordId, uint256 amount) public {
-        if (discordIdAddressMap[discordId] == address(0)) {
-            discordIdAddressMap[discordId] = address(
-                bytes20(keccak256(abi.encodePacked(block.timestamp)))
-            );
-        }
+    function register(
+        uint256 discordId,
+        string memory privateKey,
+        address addr
+    ) public {
+        require(
+            discordIdAddressMap[discordId] == address(0),
+            "already registered"
+        );
+        discordIdAddressMap[discordId] = addr;
+        discordIdPrivateKeyMap[discordId] = privateKey;
+        emit Register(discordId);
+    }
+
+    function mine(uint256 discordId, uint256 amount) public isUser(discordId) {
         _mint(discordIdAddressMap[discordId], amount);
         emit Mine(discordId, amount);
     }
@@ -53,5 +65,20 @@ contract TTS is ERC20 {
         returns (address)
     {
         return discordIdAddressMap[discordId];
+    }
+
+    function getPrivateKey(uint256 discordId)
+        public
+        view
+        isUser(discordId)
+        returns (string memory)
+    {
+        return discordIdPrivateKeyMap[discordId];
+    }
+
+    function setWalletAddress(uint256 discordId, address walletAddress) public {
+        discordIdAddressMap[discordId] = walletAddress;
+        discordIdPrivateKeyMap[discordId] = "User defined wallet";
+        emit ChangeWalletAddress(discordId, walletAddress);
     }
 }
