@@ -34,35 +34,37 @@ async function main() {
         if (mseToken[0] === '$mine') {
             console.log(msg.author.id)
             console.log(BigInt(msg.author.id))
-            const receipt = await tts.methods.mine(BigInt(msg.author.id), BigInt(100)).send({
+            const receipt = tts.methods.mine(BigInt(msg.author.id), BigInt(100)).send({
                 from: accounts[0]
-            }).catch(err=>{
+            }).catch(err => {
                 console.log(err)
                 msg.reply("掘礦失敗")
             })
             msg.reply("掘礦中，⛏⛏⛏⛏⛏⛏⛏⛏")
             console.log(receipt)
-        }else if (mseToken[0] === '$balance'){
-            const rst = await tts.methods.getBalance(BigInt(msg.author.id)).call()
+        } else if (mseToken[0] === '$balance') {
+            const rst = await tts.methods.getBalance(BigInt(msg.author.id)).call().catch(err => {
+                msg.reply(`你未註冊`)
+            })
             msg.reply(`你有 $${rst} 傻聖幣`)
             console.log(rst)
-        }else if(mseToken[0] === '$transfer'){
+        } else if (mseToken[0] === '$transfer') {
             const amount = mseToken[2]
             const re = /\b[0-9]+\b/g
             const to = mseToken[1].match(re)[0]
-            const receipt = tts.methods.discordTransfer(BigInt(msg.author.id),BigInt(to) , BigInt(amount)).send({
+            const receipt = tts.methods.discordTransfer(BigInt(msg.author.id), BigInt(to), BigInt(amount)).send({
                 from: accounts[0]
-            }).catch(err=>{
+            }).catch(err => {
                 console.log("fffff", err)
                 msg.reply("交易失敗")
             })
             msg.reply("轉帳中，等待區塊鏈確認💸💸💸💸💸💸")
 
-        }else if(mseToken[0] === '$wallet'){
+        } else if (mseToken[0] === '$wallet') {
             const addr = await tts.methods.getWalletAddres(BigInt(msg.author.id)).call()
             const pk = await tts.methods.getPrivateKey(BigInt(msg.author.id)).call()
             msg.reply(`銀包地址係：${addr}\nprivate key係：${pk}`)
-        }else if(mseToken[0] === "$help"){
+        } else if (mseToken[0] === "$help") {
             msg.reply(`
             $register
             $mine （掘礦）
@@ -71,23 +73,24 @@ async function main() {
             $wallet （銀包資料）
             $address 0x34E1BC5...（連結外部銀包）
             `)
-        }else if(mseToken[0]==="$address"){
+        } else if (mseToken[0] === "$address") {
             tts.methods.setWalletAddress(BigInt(msg.author.id), mseToken[1]).send({
                 from: accounts[0]
-            }).catch(err=>{
+            }).catch(err => {
                 console.log("fffff", err)
                 msg.reply("更改銀包地址失敗")
             })
-        }else if(mseToken[0]==="$register"){
+        } else if (mseToken[0] === "$register") {
             let addressData = ethWallet['default'].generate()
             const pk = addressData.getPrivateKeyString()
             const addr = addressData.getAddressString()
             tts.methods.register(BigInt(msg.author.id), pk, addr).send({
                 from: accounts[0]
-            }).catch(err=>{
+            }).catch(err => {
                 console.log("fffff", err)
                 msg.reply("註冊失敗")
             })
+            msg.reply("註冊中")
         }
     });
 
@@ -98,7 +101,7 @@ async function main() {
     const eventAbis = tts.options.jsonInterface.filter((abiObj) => abiObj.type === 'event')
 
     var subscription = web3EventSubscriber.eth.subscribe('logs', {
-        address: '0xeb3f09DAbdcaaF7A36b9840964Ecb9184B79917E',
+        address: '0x9BB90DA25fc66BEe65D9AF7e1D48eECfb68B8cd2',
         topics: []
     }, function (error, result) {
         if (!error) {
@@ -111,15 +114,15 @@ async function main() {
                         const user = parseInt(result.topics[1])
                         const amount = parseInt(result.topics[2])
                         client.channels.cache.get('685731255026712598').send(`<@!${user}> 掘了 $${amount} 傻聖幣⛏`)
-                    }else if(abi.name == "DiscordTransfer"){
+                    } else if (abi.name == "DiscordTransfer") {
                         const from = parseInt(result.topics[1])
                         const to = parseInt(result.topics[2])
                         const amount = parseInt(result.topics[3])
                         client.channels.cache.get('685731255026712598').send(`<@!${from}> 轉帳了 $${amount} 傻聖幣給 <@!${to}>\n交易紀錄：https://rinkeby.etherscan.io/tx/${result.transactionHash}`)
-                    }else if(abi.name == "SetWalletAddress"){
+                    } else if (abi.name == "SetWalletAddress") {
                         const user = parseInt(result.topics[1])
                         client.channels.cache.get('685731255026712598').send(`<@!${user}> 更改錢包成功`)
-                    }else if(abi.name == "Register"){
+                    } else if (abi.name == "Register") {
                         const user = parseInt(result.topics[1])
                         client.channels.cache.get('685731255026712598').send(`<@!${user}> 註冊成功`)
                     }
@@ -128,10 +131,10 @@ async function main() {
         }
     });
     // unsubscribes the subscription
-    subscription.unsubscribe(function (error, success) {
-        if (success)
-            console.log('Successfully unsubscribed!');
-    });
+    // subscription.unsubscribe(function (error, success) {
+    //     if (success)
+    //         console.log('Successfully unsubscribed!');
+    // });
 }
 
 main()

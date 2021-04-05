@@ -1,0 +1,221 @@
+{
+  "manifestVersion": "3.1",
+  "impls": {
+    "6939d88f7acd34b583e88a6da59b20be8b8a40adabc2d972e662eca79d900342": {
+      "address": "0x5e2279b00dbd7AD1227Dc505A00902aF1727674d",
+      "txHash": "0x392fbb8709dd050fb93ddf4884c86602ec4f82d0923ab98ae8493a4e746f8bc7",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\..\\..\\..\\miketsui\\Desktop\\playground\\tts-coin-bot\\smartContract\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol:29"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\..\\..\\..\\miketsui\\Desktop\\playground\\tts-coin-bot\\smartContract\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol:33"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:34"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_allowances",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:36"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_totalSupply",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:38"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:40"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:41"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)45_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:309"
+          },
+          {
+            "contract": "TTS",
+            "label": "discordIdAddressMap",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\contracts\\TTS.sol:12"
+          },
+          {
+            "contract": "TTS",
+            "label": "discordIdPrivateKeyMap",
+            "type": "t_mapping(t_uint256,t_string_storage)",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\contracts\\TTS.sol:13"
+          }
+        ],
+        "types": {
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_uint256,t_string_storage)": {
+            "label": "mapping(uint256 => string)"
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_array(t_uint256)45_storage": {
+            "label": "uint256[45]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "13fcdd4dd380a06bf83d17836dffc224364a3484e8603fbbfb38d94708d25ac2": {
+      "address": "0xB6a791D183e2D59b5665c67371F54256E9320787",
+      "txHash": "0x2f456d836827d68557e4925ec0762d0f4a77c14ee9944c900e6ac22fdd995a3e",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\..\\..\\..\\miketsui\\Desktop\\playground\\tts-coin-bot\\smartContract\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol:29"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\..\\..\\..\\miketsui\\Desktop\\playground\\tts-coin-bot\\smartContract\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol:33"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:34"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_allowances",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:36"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_totalSupply",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:38"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:40"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:41"
+          },
+          {
+            "contract": "ERC20Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)45_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\node_modules\\@openzeppelin\\contracts-upgradeable\\token\\ERC20\\ERC20Upgradeable.sol:309"
+          },
+          {
+            "contract": "TTS",
+            "label": "discordIdAddressMap",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\contracts\\TTS.sol:12"
+          },
+          {
+            "contract": "TTS",
+            "label": "discordIdPrivateKeyMap",
+            "type": "t_mapping(t_uint256,t_string_storage)",
+            "src": "..\\..\\..\\..\\..\\..\\..\\C\\Users\\123\\Desktop\\playground\\gobot\\smartContract\\contracts\\TTS.sol:13"
+          }
+        ],
+        "types": {
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_uint256,t_string_storage)": {
+            "label": "mapping(uint256 => string)"
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_array(t_uint256)45_storage": {
+            "label": "uint256[45]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    }
+  },
+  "admin": {
+    "address": "0x9c2be0aF7e6a7Ca8c601E56af016082495440FC9",
+    "txHash": "0x13545aded5e9c02ffb2801f22bd79f9bef549ae26a2e84c8604fff4ca257c901"
+  }
+}

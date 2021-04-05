@@ -1,10 +1,9 @@
 pragma solidity ^0.8.0;
 
-import "../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "../node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+import "../node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract TTS is ERC20 {
-    constructor() ERC20("Tong Shing Coin", "TTS") {}
-
+contract TTS is Initializable, ERC20Upgradeable{
     event Mine(uint256 indexed, uint256 indexed);
     event DiscordTransfer(uint256 indexed, uint256 indexed, uint256 indexed);
     event ChangeWalletAddress(uint256 indexed, address indexed);
@@ -19,6 +18,13 @@ contract TTS is ERC20 {
             "This is not a user"
         );
         _;
+    }
+
+    function initialize(
+        string memory name_,
+        string memory symbol_
+    ) public virtual initializer {
+        __ERC20_init(name_, symbol_);
     }
 
     function register(
@@ -80,5 +86,9 @@ contract TTS is ERC20 {
         discordIdAddressMap[discordId] = walletAddress;
         discordIdPrivateKeyMap[discordId] = "User defined wallet";
         emit ChangeWalletAddress(discordId, walletAddress);
+    }
+
+    function test()pure public{
+        
     }
 }
