@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	dg, err := discordgo.New("Bot NTQ0MTEyMDc1MjI0NTE0NTcw.XGAF2w.q6Ewo3_Qx58MWng2sBsfmiHmz74")
+	dg, err := discordgo.New("Bot Secret")
 	if err != nil {
 		fmt.Println("error creating Discord session,", err)
 		return
