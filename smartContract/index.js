@@ -1,7 +1,7 @@
 const Web3 = require("web3");
 const ethWallet = require('ethereumjs-wallet');
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const mnemonicPhrase = "river spare typical endorse tragic egg twelve brisk call farm obscure bunker";
+const mnemonicPhrase = "secret";
 const TTS = require("./build/contracts/TTS.json")
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -13,20 +13,20 @@ let provider = new HDWalletProvider({
     mnemonic: {
         phrase: mnemonicPhrase
     },
-    providerOrUrl: "https://rinkeby.infura.io/v3/50aa19ab84df4855923c094d5b4d0c2a"
+    providerOrUrl: "https://rinkeby.infura.io/v3/secret"
 });
 
 async function main() {
 
     let web3 = new Web3(provider);
-    let web3EventSubscriber = new Web3("wss://rinkeby.infura.io/ws/v3/50aa19ab84df4855923c094d5b4d0c2a");
+    let web3EventSubscriber = new Web3("wss://rinkeby.infura.io/ws/v3/secret");
 
     const id = await web3.eth.net.getId()
 
     const tts = new web3.eth.Contract(TTS.abi, TTS.networks[id].address)
 
 
-    client.login('NTQ0MTEyMDc1MjI0NTE0NTcw.XGAF2w.q6Ewo3_Qx58MWng2sBsfmiHmz74');
+    client.login('secret');
     client.on('message', async (msg) => {
         console.log(msg.content)
         const accounts = await web3.eth.getAccounts()
