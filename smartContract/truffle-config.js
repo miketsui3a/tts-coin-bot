@@ -1,5 +1,5 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const mnemonicPhrase = "river spare typical endorse tragic egg twelve brisk call farm obscure bunker";
+const mnemonicPhrase = "secret";
 
 /**
  * Use this file to configure your truffle project. It's seeded with some
@@ -44,7 +44,7 @@ module.exports = {
         mnemonic: {
           phrase: mnemonicPhrase
         },
-        providerOrUrl: "https://rinkeby.infura.io/v3/50aa19ab84df4855923c094d5b4d0c2a"
+        providerOrUrl: "https://rinkeby.infura.io/v3/secret"
       }),
       network_id: 4,       // Ropsten's id
       gas: 5500000,        // Ropsten has a lower block limit than mainnet
